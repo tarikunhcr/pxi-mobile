@@ -4,7 +4,7 @@ import App from "./App"
 import { defineCustomElements } from "@ionic/pwa-elements/loader"
 
 const container = document.getElementById("root")
-const root = createRoot(container)
+const root = createRoot(container!)
 defineCustomElements(window)
 
 root.render(
