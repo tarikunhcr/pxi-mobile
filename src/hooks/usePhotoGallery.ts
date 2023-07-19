@@ -34,6 +34,9 @@ export function usePhotoGallery() {
 
     useEffect(() => {
         Camera.requestPermissions()
+        Camera.checkPermissions().then((e) => {
+            alert(e.camera)
+        })
         const loadSaved = async () => {
             const { value } = await Preferences.get({ key: PHOTO_STORAGE })
 
