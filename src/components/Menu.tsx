@@ -73,7 +73,7 @@ const Menu: React.FC = () => {
         <IonMenu contentId="main" type="overlay">
             <IonContent>
                 <IonList id="inbox-list">
-                    <IonListHeader>PXI Mobile</IonListHeader>
+                    <IonListHeader>PXI Mobile2</IonListHeader>
                     <IonNote>tarik@ionicframework.com</IonNote>
                     {appPages.map((appPage, index) => {
                         return (
