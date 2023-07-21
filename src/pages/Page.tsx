@@ -34,6 +34,7 @@ const Page: React.FC = () => {
     async function sub() {
         const portalSubscription = await Portals.subscribe({ topic: "photoPath" }, (result: any) => {
             console.log(JSON.stringify(result))
+            alert(JSON.stringify(result))
         })
     }
 
