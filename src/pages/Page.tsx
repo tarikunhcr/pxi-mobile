@@ -18,7 +18,7 @@ import { useParams } from "react-router"
 import "./Page.css"
 import { camera } from "ionicons/icons"
 import { usePhotoGallery } from "../hooks/usePhotoGallery"
-import { useEffect } from "react"
+import Portals from "@ionic/portals"
 
 const Page: React.FC = () => {
     const { name } = useParams<{ name: string }>()
@@ -26,7 +26,8 @@ const Page: React.FC = () => {
     const { photos, takePhoto } = usePhotoGallery()
     function handlePress() {
         alert("pressed")
-        takePhoto()
+        // takePhoto()
+        Portals.publish({ topic: "dismiss", data: "success" })
     }
 
     return (
