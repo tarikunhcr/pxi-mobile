@@ -24,8 +24,13 @@ import "@ionic/react/css/display.css"
 import "./theme/variables.css"
 
 setupIonicReact()
+import { getInitialContext } from "@ionic/portals"
 
 const App: React.FC = () => {
+    const initialContext = getInitialContext<{ ic_example: string }>()
+    console.log("----", initialContext?.value?.ic_example)
+    alert(initialContext?.value?.ic_example)
+
     return (
         <IonApp>
             <IonReactRouter>
