@@ -18,15 +18,25 @@ import { useParams } from "react-router"
 import "./Page.css"
 import { camera } from "ionicons/icons"
 import { usePhotoGallery } from "../hooks/usePhotoGallery"
+// import Portals from "@ionic/portals"
+import { useEffect } from "react"
 
-const Page: React.FC = () => {
-    const { name } = useParams<{ name: string }>()
+const Page = () => {
+    const { name } = useParams()
 
     const { photos, takePhoto } = usePhotoGallery()
     function handlePress() {
         alert("pressed")
         takePhoto()
     }
+    // useEffect(async () => {
+    //     const portalSubscription = await Portals.subscribe({ topic: "weather" }, (result) => {
+    //         console.log(JSON.stringify(result))
+    //     })
+
+    //     return () => {}
+    // }, [])
+
     return (
         <IonPage>
             <IonHeader>
