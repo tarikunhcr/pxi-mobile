@@ -25,11 +25,16 @@ import "./theme/variables.css"
 
 setupIonicReact()
 import { getInitialContext } from "@ionic/portals"
+import { useEffect } from "react"
 
 const App: React.FC = () => {
-    const initialContext = getInitialContext<{ ic_example: string }>()
-    console.log("----", initialContext?.value?.ic_example)
-    alert(initialContext?.value?.ic_example)
+    useEffect(() => {
+        const initialContext = getInitialContext<{ ic_example: string }>()
+        console.log("----", initialContext?.value?.ic_example)
+        alert(initialContext?.value ? initialContext?.value?.ic_example : "Some error")
+
+        return () => {}
+    }, [])
 
     return (
         <IonApp>
