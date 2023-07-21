@@ -19,6 +19,7 @@ import "./Page.css"
 import { camera } from "ionicons/icons"
 import { usePhotoGallery } from "../hooks/usePhotoGallery"
 import Portals from "@ionic/portals"
+import React from "react"
 
 const Page: React.FC = () => {
     const { name } = useParams<{ name: string }>()
@@ -29,6 +30,17 @@ const Page: React.FC = () => {
         // takePhoto()
         Portals.publish({ topic: "dismiss", data: "success" })
     }
+
+    async function sub() {
+        const portalSubscription = await Portals.subscribe({ topic: "photoPath" }, (result: any) => {
+            console.log(JSON.stringify(result))
+        })
+    }
+
+    React.useEffect(() => {
+        sub()
+        return () => {}
+    }, [])
 
     return (
         <IonPage>
