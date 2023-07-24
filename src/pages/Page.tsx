@@ -26,7 +26,7 @@ const Page: React.FC = () => {
 
     const { photos, takePhoto } = usePhotoGallery()
     function handlePress() {
-        // takePhoto()
+        takePhoto()
         Portals.publish({ topic: "dismiss", data: "success" })
     }
 
@@ -34,7 +34,7 @@ const Page: React.FC = () => {
         await Portals.subscribe({ topic: "photoPath" }, (result: any) => {
             console.log(JSON.stringify(result))
             // alert(JSON.stringify(result))
-            takePhoto(result)
+            takePhoto()
         })
     }
 
