@@ -63,9 +63,11 @@ export function usePhotoGallery() {
         //     source: CameraSource.Camera,
         //     quality: 100,
         // })
-        alert("from take photo" + photo)
+        alert("from take photo" + JSON.stringify(photo))
         const fileName = new Date().getTime() + ".jpeg"
         const savedFileImage = await savePicture(photo, fileName)
+        alert("savedFileImage" + JSON.stringify(savedFileImage))
+
         const newPhotos = [savedFileImage, ...photos]
         setPhotos(newPhotos)
         Preferences.set({ key: PHOTO_STORAGE, value: JSON.stringify(newPhotos) })
