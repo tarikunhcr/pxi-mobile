@@ -63,6 +63,7 @@ export function usePhotoGallery() {
         //     source: CameraSource.Camera,
         //     quality: 100,
         // })
+        alert("from take photo" + photo)
         const fileName = new Date().getTime() + ".jpeg"
         const savedFileImage = await savePicture(photo, fileName)
         const newPhotos = [savedFileImage, ...photos]
@@ -86,7 +87,7 @@ export function usePhotoGallery() {
             data: base64Data,
             directory: Directory.Data,
         })
-
+        alert("from save picture" + savedFile)
         if (isPlatform("hybrid")) {
             // Display the new image by rewriting the 'file://' path to HTTP
             // Details: https://ionicframework.com/docs/building/webview#file-protocol
@@ -135,6 +136,7 @@ export interface UserPhoto {
 export async function base64FromPath(path: string): Promise<string> {
     const response = await fetch(path)
     const blob = await response.blob()
+    alert("from base64FromPath" + blob)
     return new Promise((resolve, reject) => {
         const reader = new FileReader()
         reader.onerror = reject
