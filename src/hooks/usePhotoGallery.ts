@@ -57,12 +57,12 @@ export function usePhotoGallery() {
         loadSaved()
     }, [])
 
-    const takePhoto = async () => {
-        const photo = await Camera.getPhoto({
-            resultType: CameraResultType.Uri,
-            source: CameraSource.Camera,
-            quality: 100,
-        })
+    const takePhoto = async (photo: any) => {
+        // const photo = await Camera.getPhoto({
+        //     resultType: CameraResultType.Uri,
+        //     source: CameraSource.Camera,
+        //     quality: 100,
+        // })
         const fileName = new Date().getTime() + ".jpeg"
         const savedFileImage = await savePicture(photo, fileName)
         const newPhotos = [savedFileImage, ...photos]
